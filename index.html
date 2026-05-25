@@ -13,9 +13,30 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '8036953896410454');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: '52 Perguntas e Respostas sobre Câncer de Mama',
+  content_category: 'Ebook',
+  value: 67.00,
+  currency: 'BRL'
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=8036953896410454&ev=PageView&noscript=1"/></noscript>
+<script>
+function trackCheckout() {
+  fbq('track', 'InitiateCheckout', {
+    content_name: '52 Perguntas e Respostas sobre Câncer de Mama',
+    content_category: 'Ebook',
+    value: 67.00,
+    currency: 'BRL'
+  });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="kiwify"]').forEach(function(btn) {
+    btn.addEventListener('click', trackCheckout);
+  });
+});
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-09RL61LFD7"></script>
 <script>
