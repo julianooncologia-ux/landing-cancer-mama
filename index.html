@@ -65,11 +65,12 @@ a:hover{text-decoration:underline}
 
 .container{max-width:var(--max);margin:0 auto;padding:0 22px}
 
-.topbar{
-  background:linear-gradient(90deg,#0d1b2a,#1b2a41);
-  color:#fff;font-size:14px;text-align:center;padding:10px 16px;
+/* BARRA URGÊNCIA */
+.urgency-bar{
+  background:var(--gold);
+  color:#fff;font-size:14px;text-align:center;padding:11px 16px;
 }
-.topbar strong{color:#ffd8a8}
+.urgency-bar strong{color:#fff}
 
 /* HERO */
 .hero{
@@ -232,6 +233,10 @@ details p{margin:10px 0 0;color:var(--ink-2)}
 }
 .cross a:hover{background:var(--brand);color:#fff;text-decoration:none}
 
+/* CTA intermediário centralizado */
+.cta-center{text-align:center;padding:32px 0 8px}
+.cta-center .cta-sub{margin-top:10px}
+
 /* Footer */
 footer{padding:34px 0;text-align:center;color:var(--muted);font-size:13px;background:var(--bg)}
 footer p{margin:6px 0}
@@ -250,8 +255,12 @@ footer p{margin:6px 0}
 </head>
 <body>
 
-<div class="topbar">🎉 <strong>Preço de lançamento</strong> — acesso imediato por R$ 67 (de R$ 97)</div>
+<!-- BARRA URGÊNCIA -->
+<div class="urgency-bar">
+  🎉 <strong>Desconto de lançamento</strong> — os primeiros 100 leitores pagam R$ 67 (de R$ 97). Preço sobe após esse limite.
+</div>
 
+<!-- HERO -->
 <header class="hero">
   <div class="container">
     <span class="eyebrow">52 perguntas e respostas · câncer de mama</span>
@@ -280,6 +289,7 @@ footer p{margin:6px 0}
   </div>
 </header>
 
+<!-- PARA QUEM É -->
 <section>
   <div class="container">
     <span class="section-eyebrow">Para quem é este guia</span>
@@ -294,6 +304,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
+<!-- O QUE VOCÊ RECEBE -->
 <section class="alt">
   <div class="container">
     <span class="section-eyebrow">O que você recebe</span>
@@ -319,6 +330,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
+<!-- DEPOIMENTOS -->
 <section>
   <div class="container">
     <span class="section-eyebrow">Quem já leu</span>
@@ -342,6 +354,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
+<!-- PREVIEW -->
 <section class="alt">
   <div class="container">
     <span class="section-eyebrow">Uma amostra do conteúdo</span>
@@ -361,14 +374,15 @@ footer p{margin:6px 0}
       <span class="more-link">→ A resposta completa, com dados de sobrevida e opções de tratamento, está no guia.</span>
     </div>
 
-    <p style="text-align:center;margin:24px 0 10px;color:var(--muted)">Essas são apenas 2 das 52 respostas.</p>
-    <div style="text-align:center">
+    <div class="cta-center">
+      <p style="color:var(--muted);margin:0 0 14px">Essas são apenas 2 das 52 respostas.</p>
       <a class="cta" href="https://pay.kiwify.com.br/itIxJe5" data-cta="apos-preview">Ler o guia completo por R$ 67 →</a>
       <div class="cta-sub" style="margin-top:10px">Entrega imediata · Garantia de 7 dias</div>
     </div>
   </div>
 </section>
 
+<!-- AUTOR -->
 <section>
   <div class="container">
     <span class="section-eyebrow">Quem responde</span>
@@ -385,6 +399,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
+<!-- GARANTIA E FAQ -->
 <section class="alt">
   <div class="container">
     <span class="section-eyebrow">Segurança na compra</span>
@@ -433,6 +448,7 @@ footer p{margin:6px 0}
   </div>
 </section>
 
+<!-- CTA FINAL -->
 <section class="final">
   <div class="container">
     <h2>O diagnóstico não espera. As respostas também não deveriam.</h2>
@@ -460,7 +476,6 @@ footer p{margin:6px 0}
 </footer>
 
 <script>
-// Eventos de conversão e microconversões
 document.addEventListener('DOMContentLoaded', function(){
   // InitiateCheckout nos cliques de CTA
   document.querySelectorAll('a[href*="pay.kiwify"]').forEach(function(a){
@@ -492,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function(){
     io.observe(sentinel);
   }
 
-  // Scroll 75% como sinal de engajamento
+  // Scroll 75%
   var scrollFired = false;
   window.addEventListener('scroll', function(){
     if (scrollFired) return;
@@ -505,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }, { passive: true });
 
-  // Tempo >60s na página
+  // Tempo >60s
   setTimeout(function(){
     if (typeof fbq !== 'undefined') fbq('trackCustom', 'Engaged60s');
     if (typeof gtag !== 'undefined') gtag('event', 'engaged_60s');
